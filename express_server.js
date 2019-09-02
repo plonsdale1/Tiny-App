@@ -9,6 +9,11 @@ const urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
+app.get("/urls/:shortURL", (request, response) => {
+  let templateVars = {shortURL: request.params.shortUrl, longURL: request.params.shortUrl};
+  response.render("urls_show", templateVars);
+})
+
 app.get("/", (request, response) => {
   response.send("Hello!");
 });
